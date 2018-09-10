@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CoreRazorPages.ComponentBasedUi.Pages
+namespace CoreRazorPages.ComponentBasedUi.Pages.Error
 {
-    public class ErrorModel : PageModel
+    public class IndexModel : PageModel
     {
         public string RequestId { get; set; }
 

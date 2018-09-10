@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CoreRazorPages.ComponentBasedUi.Pages
+namespace CoreRazorPages.ComponentBasedUi.Pages.About
 {
-    public class AboutModel : PageModel
+    public class IndexModel : PageModel
     {
         public string Message { get; set; }
 
