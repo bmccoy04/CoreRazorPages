@@ -1,3 +1,13 @@
 @page
+@addTagHelper *, CoreRazorPages.ComponentBasedUi
 
 <h1>Users</h1>
+
+ @await Component.InvokeAsync("UserList")
+
+ <hr>
+
+ <vc:user-list >
+</vc:user-list>
+
+<a class="btn btn-default" asp-page="Add">Add User</a>
