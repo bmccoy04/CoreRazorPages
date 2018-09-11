@@ -1,13 +1,14 @@
-@page
+@page "{searchString?}"
+@model IndexModel
 @addTagHelper *, CoreRazorPages.ComponentBasedUi
 
 <h1>Users</h1>
+<!-- 
+ @await Component.InvokeAsync("Search") -->
+ <vc:search>
+</vc:search>
 
- @await Component.InvokeAsync("UserList")
-
- <hr>
-
- <vc:user-list >
+ <vc:user-list edit-route="Edit" delete-route="Delete" search-string="@Model.SearchString">
 </vc:user-list>
 
 <a class="btn btn-default" asp-page="Add">Add User</a>

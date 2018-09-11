@@ -10,47 +10,46 @@ using Microsoft.Extensions.Logging;
 
 namespace CoreRazorPages.ComponentBasedUi.Pages.Users
 {
-    public class AddModel : PageModel
+    public class EditModel : PageModel
     {
         [BindProperty]
         public UserVm UserVm { get; set; }
-
         private ILogger _logger;
         private IUserRepository _userRepo;
 
-        public AddModel(ILogger<AddModel> logger, IUserRepository userRepo)
+        public EditModel(ILogger<AddModel> logger, IUserRepository userRepo)
         {
             _logger = logger;
             _userRepo = userRepo;
         }
 
-        public void OnGet()
+        public void OnGet(string id)
         {
-            UserVm = new UserVm();
-            UserVm.FirstName = "test";
+            var user = _userRepo.Get(id);
+            UserVm = new UserVm() {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                IsCool = user.IsCool
+            };
         }
 
         public IActionResult OnPost()
         {
+            _logger.LogInformation("User's Id: -------- " + UserVm.Id);
             var user = new User() {
+                Id = UserVm.Id,
                 FirstName = UserVm.FirstName,
                 LastName = UserVm.LastName,
                 Email = UserVm.Email,
                 IsCool = UserVm.IsCool
             };
 
-            _userRepo.Add(user); 
+            _userRepo.Update(user); 
             
             return RedirectToPage("Index");
         }
     }
 
-    public class UserVm
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public bool IsCool { get; set; }
-        public string Id { get; set; }
-    }
 }

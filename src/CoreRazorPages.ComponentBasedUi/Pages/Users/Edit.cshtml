@@ -1,7 +1,18 @@
 @page
-
+@model EditModel
 <h1>
     Edit User
 </h1>
 
-<a class="btn btn-default" asp-page="Index">Cancel</a>
+
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <input type="hidden" asp-for="UserVm.Id">
+        <div class="form-group">
+           <label for="FirstName">Name:</label>
+            <input asp-for="UserVm.FirstName" />
+        </div>
+
+        <a class="btn btn-default" asp-page="Index">Cancel</a>
+        <input type="submit" class="btn btn-primary" />
+    </form>
