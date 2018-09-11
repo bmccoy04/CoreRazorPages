@@ -1,5 +1,6 @@
 @using CoreRazorPages.ComponentBasedUi.Shared.Entities
 @model UserListViewModel
+@addTagHelper *, CoreRazorPages.ComponentBasedUi
 
 <div class="conatiner">
     <table class="table">
@@ -27,7 +28,8 @@
                     @user.LastName
                 </td>
                 <td>
-                    <a asp-page="@Model.EditRoute" asp-route-id="@user.Id">@Model.EditRoute</a>
+                    <vc:grid-crud-buttons  edit-route="@Model.EditRoute" delete-route="@Model.DeleteRoute" entity-id="@user.Id">
+                    </vc:grid-crud-buttons>
                 </td>
             </tr>
         }

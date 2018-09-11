@@ -5,10 +5,18 @@
 <h1>Users</h1>
 <!-- 
  @await Component.InvokeAsync("Search") -->
- <vc:search>
+
+<vc:search>
 </vc:search>
 
- <vc:user-list edit-route="Edit" delete-route="Delete" search-string="@Model.SearchString">
+<vc:user-list 
+    edit-route="Edit" 
+    delete-route="Delete" 
+    search-string="@Model.SearchString">
 </vc:user-list>
 
-<a class="btn btn-default" asp-page="Add">Add User</a>
+<a 
+    class="btn btn-default" 
+    asp-page="Add">
+    Add User
+</a>

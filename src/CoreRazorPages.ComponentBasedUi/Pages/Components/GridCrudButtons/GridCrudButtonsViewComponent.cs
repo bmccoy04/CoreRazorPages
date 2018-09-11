@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreRazorPages.ComponentBasedUi.Pages.Components.UserList
+namespace CoreRazorPages.ComponentBasedUi.Pages.Components.GridCrudButtons
 {
     public class GridCrudButtonsViewComponent : ViewComponent
     {
@@ -20,16 +20,17 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Components.UserList
 
         public IViewComponentResult Invoke(string editRoute, string deleteRoute, string entityId)
         {
-            return View(new CrudButtonViewComponent()
+            _logger.LogDebug("----- Crud Buttons Called ------");
+            return View(new CrudButtonViewModel()
             {
                 EditRoute = editRoute,
-                DeleteRoute = deleteRoute,
-                EntityId = entityId
+                EntityId = entityId,
+                DeleteRoute = deleteRoute
             });
         }
     }
 
-    public class CrudButtonViewComponent
+    public class CrudButtonViewModel
     {
         public string EditRoute { get; set; }
         public string EntityId { get; set; }

@@ -23,7 +23,7 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Components.UserList
         public async Task<IViewComponentResult> InvokeAsync(string editRoute, string deleteRoute, string searchString)
         {
 
-            _logger.LogInformation("User view component load");
+            _logger.LogDebug("User view component load");
             _logger.LogInformation(editRoute);
             
             var users = new List<User>();
