@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace CoreRazorPages.ComponentBasedUi.Pages.Components.UserForm
 {
-    public class UserFormComponent : ViewComponent
+    public class UserFormViewComponent : ViewComponent
     {
         private IUserRepository _userRepo;
-        private ILogger<UserFormComponent> _logger;
+        private ILogger<UserFormViewComponent> _logger;
 
         public UserFormViewComponent(IUserRepository userRepo, ILogger<UserFormViewComponent> logger)
         {
