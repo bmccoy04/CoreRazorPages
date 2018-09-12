@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreRazorPages.ComponentBasedUi.Data.Repository;
@@ -27,11 +28,15 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
         public void OnGet()
         {
             UserVm = new UserVm();
-            UserVm.FirstName = "test";
         }
 
         public IActionResult OnPost()
         {
+            if(!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             var user = new User() {
                 FirstName = UserVm.FirstName,
                 LastName = UserVm.LastName,
@@ -47,8 +52,14 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
 
     public class UserVm
     {
+        [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
+        
+        [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
         public bool IsCool { get; set; }
         public string Id { get; set; }

@@ -13,6 +13,12 @@
                     <th>
                         Last Name
                     </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Is Cool
+                    </th>
                     <th></th>
                 </tr>
             </tr>        
@@ -26,6 +32,12 @@
                 </td>
                 <td>
                     @user.LastName
+                </td>
+                <td>
+                    @user.Email
+                </td>
+                <td>
+                    @user.IsCool
                 </td>
                 <td>
                     <vc:grid-crud-buttons  edit-route="@Model.EditRoute" delete-route="@Model.DeleteRoute" entity-id="@user.Id">

@@ -1,7 +1,9 @@
-
+@addTagHelper *, CoreRazorPages.ComponentBasedUi
+@using CoreRazorPages.ComponentBasedUi.Shared.Enum
 <form>
     <p>
         Search: <input type="text" name="SearchString" >
-        <input type="submit" value="Filter" />
+        <search-button size="@ButtonSize.Small"></search-button>
+        <!-- <input type="submit" value="Filter" /> -->
     </p>
 </form>

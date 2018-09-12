@@ -3,8 +3,7 @@
 @addTagHelper *, CoreRazorPages.ComponentBasedUi
 
 <h1>Users</h1>
-<!-- 
- @await Component.InvokeAsync("Search") -->
+<!-- @await Component.InvokeAsync("Search") -->
 
 <vc:search>
 </vc:search>
@@ -15,8 +14,7 @@
     search-string="@Model.SearchString">
 </vc:user-list>
 
-<a 
-    class="btn btn-default" 
-    asp-page="Add">
+<add-button add-route="/Users/Add">
     Add User
-</a>
+</add-button>
+

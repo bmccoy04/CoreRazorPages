@@ -29,7 +29,10 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Components.UserList
             var users = new List<User>();
 
             if(!string.IsNullOrWhiteSpace(searchString))
-                users = _userRepo.Get().Where(x => x.FirstName.Contains(searchString) || x.LastName.Contains(searchString)).ToList();
+                users = _userRepo.Get().Where(x => (x.FirstName != null && 
+                                                    x.FirstName.Contains(searchString)) || 
+                                                   (x.LastName != null && 
+                                                    x.LastName.Contains(searchString))).ToList();
             else
                 users = _userRepo.Get().ToList();
 
