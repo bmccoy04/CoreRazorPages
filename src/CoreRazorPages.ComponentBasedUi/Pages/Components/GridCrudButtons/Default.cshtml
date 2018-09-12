@@ -1,6 +1,8 @@
 @model CrudButtonViewModel
+<div>
+    <a style="float:left" class="btn btn-default btn-sm" asp-page="@Model.EditRoute" asp-route-id="@Model.EntityId">@Model.EditRoute </a>
 
-<a asp-page="@Model.EditRoute" asp-route-id="@Model.EntityId">@Model.EditRoute</a>
-
-<a asp-page="@Model.DeleteRoute" asp-route-id="@Model.EntityId">@Model.DeleteRoute</a>
-<!-- @Model.EntityId -->
+    <form style="float:left; margin-left: 5px;" asp-page-handler="delete" asp-route-id="@Model.EntityId" method="POST">
+        <button  class="btn btn-danger btn-sm" type="submit">delete</button>
+    </form>
+</div>

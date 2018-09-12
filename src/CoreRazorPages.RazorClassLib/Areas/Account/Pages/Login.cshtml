@@ -1,0 +1,26 @@
+﻿@page
+@model CoreRazorPages.RazorClassLib.Account.Pages.LoginModel
+
+
+<h1>
+    Login
+</h1>
+
+<div class="container col-md-4">    
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+           <label for="UserName">User Name:</label>
+            <input class="form-control" asp-for="LoginViewModel.UserName" />
+        </div>
+        <div class="form-group">
+           <label for="Password">Password:</label>
+            <input class="form-control"  asp-for="LoginViewModel.Password" />
+        </div>
+                
+        <input type="submit" class="btn btn-primary" />
+        <a class="btn btn-default" asp-page="Index">Cancel</a>
+    </form>
+</div>
+<div class="clearfix"></div>
