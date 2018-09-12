@@ -10,7 +10,7 @@ namespace CoreRazorPages.ComponentBasedUi.TagHelpers
             output.TagName = "input";  
             output.Attributes.SetAttribute("type", "submit");
             output.Attributes.SetAttribute("class", "btn btn-success");
-            output.Attributes.SetAttribute("value", "Sub-TageHelper");
+            output.Attributes.SetAttribute("value", "Sub-TagHelper");
             
         }
     }
