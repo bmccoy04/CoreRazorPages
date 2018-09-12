@@ -14,6 +14,11 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
     {
         public string SearchString { get; set; }
 
+        [TempData]
+        public string Message {get;set;}
+
+        public bool ShowMessage => !String.IsNullOrWhiteSpace(Message);
+
         private ILogger _logger;
         private IUserRepository _userRepo;
 
@@ -34,7 +39,7 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
             _logger.LogDebug("---------- DELETE " + id + " -------------------");
 
             _userRepo.Delete(id);
-
+            Message = "User Deleted";
             return RedirectToPage();
         }
     }

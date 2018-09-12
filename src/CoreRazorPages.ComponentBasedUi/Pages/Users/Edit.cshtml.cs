@@ -16,6 +16,8 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
         public UserVm UserVm { get; set; }
         private ILogger _logger;
         private IUserRepository _userRepo;
+        [TempData]
+        public string Message {get;set;}
 
         public EditModel(ILogger<AddModel> logger, IUserRepository userRepo)
         {
@@ -47,7 +49,7 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
             };
 
             _userRepo.Update(user); 
-            
+            Message = "User Updated!";
             return RedirectToPage("Index");
         }
     }

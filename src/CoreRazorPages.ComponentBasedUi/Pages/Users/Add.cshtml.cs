@@ -16,6 +16,8 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
         [BindProperty]
         public UserVm UserVm { get; set; }
 
+        [TempData]
+        public string Message {get;set;}
         private ILogger _logger;
         private IUserRepository _userRepo;
 
@@ -45,7 +47,7 @@ namespace CoreRazorPages.ComponentBasedUi.Pages.Users
             };
 
             _userRepo.Add(user); 
-            
+            Message = "User Added";
             return RedirectToPage("Index");
         }
     }

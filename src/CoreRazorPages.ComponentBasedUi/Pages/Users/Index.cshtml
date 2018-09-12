@@ -3,7 +3,11 @@
 @addTagHelper *, CoreRazorPages.ComponentBasedUi
 
 <h1>Users</h1>
-
+@if(Model.ShowMessage){
+    <h2 > 
+        @Model.Message
+    </h2>
+}
 <vc:search>
 </vc:search>
 
